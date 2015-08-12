@@ -9,7 +9,7 @@ module API
           Team.all
         end
 
-        desc "Return a player's demo"
+        desc "Return a team demo"
         params do
           requires :teamid, type: String, desc: "ID of the team"
         end

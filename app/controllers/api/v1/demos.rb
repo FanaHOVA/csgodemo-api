@@ -13,16 +13,16 @@ module API
         params do
           requires :gameid, type: String, desc: "Game ID of the map"
         end
-        get ":gameid", root: "demos" do
-          Demo.where(gameid: permitted_params[:gameid]).first!
+        get ":gameid", root: :demos do
+          Demo.all.where(gameid: permitted_params[:gameid])
         end
 
         desc "Return demos by team"
         params do 
           requires :teamid, type: String, desc: "ID of the team"
         end
-        get ":teamid", root: 'demos' do
-          Demo.where(teamid: permitted_params[:teamid]).first(10)
+        get ":teamid", root: :demos do
+          Demo.all.where(team1id: permitted_params[:teamid]).first(10)
         end
       end
     end
